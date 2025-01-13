@@ -1,0 +1,51 @@
+div.contact-container
+  div.contact-info
+    div.contact-info-content
+      div.contact-info-wrapper
+        div.contact-info-inner
+          h1.contact-title
+            | Giải đáp 
+            br
+            | với LUXE
+          h2.contact-subtitle Thông tin liên hệ
+          p.contact-description Hãy liên hệ với chúng tôi nếu bạn cần hỗ trợ!
+          div.contact-phone
+            img(src="./icon/lienhe-call.svg", alt="")
+            p.contact-phone-number #{settings.contact_phone}
+          div.contact-email
+            img(src="./icon/lienhe-sms.svg", alt="")
+            p.contact-email-address #{settings.contact_email}
+          div.contact-address
+            img(src="./icon/lienhe-location.svg", alt="")
+            p.contact-address-text #{settings.address}
+        div.g-map
+          iframe.g-map(
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5541.749740164145!2d106.73396212388273!3d10.841218417707227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527d00da7c5a1%3A0x41bc2a241579e1ab!2zMzcgxJDGsOG7nW5nIHPhu5EgMzYsIEhp4buHcCBCw6xuaCBDaMOhbmgsIFRo4bunIMSQ4bupYywgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1736308521881!5m2!1svi!2s" 
+            style="border: 1px",
+            allowfullscreen="",
+            loading="lazy",
+            referrerpolicy="no-referrer-when-downgrade"
+          )
+  div.contact-form
+    div.contact-form-content
+      form.contact-form-wrapper(action="/contact/send-problem" method="POST")
+        p.contact-form-description
+          | Vui lòng nhập thông tin và nội dung cần hỏi đáp. Chúng tôi sẽ liên lạc với bạn sớm nhất có thể!
+        
+        label.contact-form-label(for="name") Họ và Tên*
+        input#name.contact-form-input(type="text" name="name" required)
+
+        label.contact-form-label(for="phone") Số điện thoại*
+        input#phone.contact-form-input(type="tel" name="phone" required)
+
+        label.contact-form-label(for="email") Email*
+        input#email.contact-form-input(type="email" name="email" required)
+
+        label.contact-form-label(for="subject") Tiêu đề*
+        input#address.contact-form-input(type="text" name="subject" required)
+
+        label.contact-form-label(for="message") Nội dung cần hỏi đáp*
+        textarea#message.contact-form-textarea(name="message" rows="4" required)
+
+        button.contact-form-submit(type="submit") Gửi
+

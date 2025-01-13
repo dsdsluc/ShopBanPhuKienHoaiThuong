@@ -1,0 +1,16 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block css 
+  link(rel="stylesheet" href="/clients/css/vechungtoi.css")
+
+block main
+  +alert-success(message, 5000)
+  +alert-error(message, 5000)
+  
+  include ./about-me.pug
+
+  block script
+    script(src="/clients/js/vechungtoi.js")
+
+

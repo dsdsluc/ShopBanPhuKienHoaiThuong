@@ -1,0 +1,23 @@
+div.similar-container
+  p.product-inf__title__1 CÓ THỂ BẠN CŨNG THÍCH
+  div.product-home
+    if featuredProducts.length > 0
+      each product in featuredProducts
+        div.product-item
+          div.product-card
+            div.product-card__img-wrap
+              a(href=`/sanpham/${product.slug}`)
+                img.product-card__thumb(src=product.thumbnail[0], alt=product.title)
+              button.like-btn
+                img.like-icon.icon(src="/clients/icon/heart.svg", alt="", onclick="heart(this)")
+            h3.product-card__title
+              a(href=`/sanpham/${product.slug}`) #{product.title}
+            p.product-card__collection= product.category
+            div.product-card__row
+              - const discountedPrice = product.price - (product.price * (product.discountPercentage || 0) / 100);
+              span.product-card__price #{discountedPrice.toLocaleString('vi-VN')}đ
+              span.product-card__price-sales #{product.price.toLocaleString('vi-VN')}đ
+              img.product-card__star(src="/clients/icon/star.svg", alt="Star rating")
+              span.product-card__score #{product.rating}
+    else
+      p.alert.alert-info Không có sản phẩm nổi bật.

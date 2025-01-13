@@ -1,0 +1,16 @@
+section#collection-home
+  .container
+    .collection-infor
+      h2.collection-title Bộ sưu tập của shop
+      p.collection-desc
+        | Đánh thức phong cách của bạn với những thiết kế thời trang tinh tế, biểu tượng cho sự tự tin và cá tính riêng
+    .img-collection.row
+      .banner-left.col-lg-8
+        a(href=homePage.featuredCategories[0].link) 
+          img(src=homePage.featuredCategories[0].image alt=homePage.featuredCategories[0].name)
+      .banner-right.col-lg-4
+        a.row(href=homePage.featuredCategories[1].link)
+          img(src=homePage.featuredCategories[1].image alt=homePage.featuredCategories[1].name)
+        a.row.mt-2(href=homePage.featuredCategories[2].link)
+          img(src=homePage.featuredCategories[2].image alt=homePage.featuredCategories[2].name)
+    a.btn.home-col.mt-4(href="/products") Khám phá bộ sưu tập

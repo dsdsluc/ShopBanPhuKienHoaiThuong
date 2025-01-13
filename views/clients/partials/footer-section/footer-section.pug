@@ -1,0 +1,57 @@
+// Footer Row
+.footer-row
+  .container
+    .footer-column
+      // Logo
+      a.logo-foot(href="/")
+        img(src=settings.site_logo ? settings.site_logo : "/clients/icon/Logo.svg" alt="Muse")
+        h1.logo-title #{settings.site_name}
+
+      // Download app
+      .download-container
+        p.download-title Tải ngay Muse app
+        .download-method
+          a.ch-store(href="https://play.google.com/store/apps")
+            img(src="/clients/icon/index-ch-play.svg" alt="")
+          a.app-store(href="https://www.apple.com/vn/app-store")
+            img(src="/clients/icon/index-app-store.svg" alt="")
+
+    .footer-column
+      h3.footer__heading Danh mục
+      ul.footer__list
+        li.footer__item
+          a.footer__link(href="/") Trang chủ
+        li.footer__item
+          a.footer__link(href="/products") Sản phẩm
+        li.footer__item
+          a.footer__link(href="/about") Về chúng tôi
+        li.footer__item
+          a.footer__link(href="/blogs") Hỗ trợ
+        li.footer__item
+          a.footer__link(href="/contact") Liên hệ
+
+    .footer-column
+      h3.footer__heading Thông tin liên hệ
+      ul.footer__list
+        li.footer__item #{settings.address}
+        li.footer__item (+84) #{settings.contact_phone}
+        li.footer__item #{settings.contact_email}
+
+    .footer-column
+      h3.footer__heading Theo dõi
+      .footer__social
+        a.footer__social-btn(href=settings.social_links.facebook target="_blank")
+          img(src="/clients/icon/index-facebook.svg" alt="")
+        a.footer__social-btn(href=settings.social_links.twitter target="_blank")
+          img(src="/clients/icon/index-insta.svg" alt="")
+        a.footer__social-btn(href=settings.social_links.instagram target="_blank")
+          img(src="/clients/icon/index-twitter.svg" alt="")
+
+// Footer Copyright
+.footer-copyright
+  .container
+    .payment-method
+      img(src="/clients/icon/paypal.svg" alt="")
+      img(src="/clients/icon/visa.svg" alt="")
+      img(src="/clients/icon/master-card.svg" alt="")
+    p.footer__copyright-text Copyright © 2025 MUSE All Rights Reserved

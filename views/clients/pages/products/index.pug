@@ -1,0 +1,52 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block css 
+  link(rel="stylesheet" href="/clients/css/danhmuc.css")
+  link(
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" 
+      rel="stylesheet"
+    )
+  link(
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    )
+  link(
+      href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone",
+      rel="stylesheet"
+  )
+
+
+block main
+  +alert-success(message, 5000)
+  +alert-error(message, 5000)
+
+  div.prod-longest-line
+  .container-main
+    include ./product-wrap.pug
+    article#article-products
+      include ./sort.pug
+      include ./list.pug
+      include ./pagination.pug
+      include ./js-pagination.pug
+      div.prod-third-line
+
+    div.suggest-prod
+      h2.suggest-prod--text GỢI Ý CHO BẠN
+
+    div.slide-container.swiper
+      div.slide-content
+        div.card-wrapper.swiper-wrapper
+          include ./suggest.pug
+      div.swiper-button-next.swiper-navBtn
+      div.swiper-button-prev.swiper-navBtn
+      div.swiper-pagination
+    include ./js-swipper.pug
+    div.prod-third-line
+
+    include ./explore.pug
+  block script
+    script(src="/clients/js/danhmuc.js")
+    
+
+

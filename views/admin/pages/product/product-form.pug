@@ -1,0 +1,243 @@
+.card.shadow-sm.border-0.rounded
+  .card-header.bg-primary.text-white
+    h4.card-title.mb-0 Product Information
+
+  .card-body.p-4
+    form(
+      action=`/${prefixAdmin}/products/edit/${product._id || ''}?_method=PATCH`,
+      method="POST",
+      class="form-create-product needs-validation",
+      enctype="multipart/form-data",
+      novalidate
+    )
+      .row.g-4
+        // 📸 Product Thumbnail
+        .col-lg-6
+          .mb-3
+            label.form-label(for="thumbnail") Product Image
+            label.custom-file-upload.d-flex.align-items-center.gap-2
+              i.bx.bx-cloud-upload.fs-4.text-primary
+              span Upload Product Image
+            input(
+              type="file", 
+              class="form-control d-none", 
+              id="thumbnail", 
+              name="thumbnail", 
+              accept="image/*", 
+              multiple
+            )
+            - const thumbnailSrc = (product && product.thumbnail && product.thumbnail[0]) ? product.thumbnail[0] : '/images/default-product.jpg';
+            img.img-fluid.rounded.bg-light.mt-2(
+              id="preview-thumbnail", 
+              src=thumbnailSrc
+            )
+
+        // ✅ Product Status
+        .col-lg-6
+          .mb-3
+            label.form-label Status
+            .d-flex.gap-3.align-items-center
+              .form-check
+                input.form-check-input(
+                  type="radio", 
+                  name="status", 
+                  id="status-active", 
+                  value="active", 
+                  checked=(product && product.status === "active")
+                )
+                label.form-check-label(for="status-active") Active
+              .form-check
+                input.form-check-input(
+                  type="radio", 
+                  name="status", 
+                  id="status-inactive", 
+                  value="inactive", 
+                  checked=(product && product.status === "inactive")
+                )
+                label.form-check-label(for="status-inactive") Inactive
+
+        // 🏷️ Product Name
+        .col-lg-6
+          .mb-3
+            label.form-label(for="title") Product Name
+            input.form-control(
+              type="text",
+              id="title",
+              name="title",
+              placeholder="Enter product name",
+              value=(product && product.title) || '',
+              required
+            )
+            .invalid-feedback Product name is required.
+
+        // 📂 Product Category
+        .col-lg-6
+          .mb-3
+            label.form-label(for="product_category_id") Product Categories
+            select.form-select(
+              id="product_category_id",
+              name="product_category_id",
+              required
+            )
+              option(value="") Choose a category
+              +select-tree(productsCategory, 1, (product && product.product_category_id && product.product_category_id._id) || '')
+            .invalid-feedback Please select a category.
+
+        // 🛍️ Brand
+        .col-lg-4
+          .mb-3
+            label.form-label(for="brand") Brand
+            input.form-control(
+              type="text",
+              id="brand",
+              name="brand",
+              placeholder="Enter brand name",
+              value=(product && product.brand) || ''
+            )
+
+        // ⚖️ Weight
+        .col-lg-4
+          .mb-3
+            label.form-label(for="weight") Weight (kg)
+            input.form-control(
+              type="text",
+              id="weight",
+              name="weight",
+              placeholder="e.g., 1.5 kg",
+              value=(product && product.weight) || ''
+            )
+
+        // 👗 Gender
+        .col-lg-4
+          .mb-3
+            label.form-label(for="gender") Gender
+            select.form-select(
+              id="gender",
+              name="gender",
+              required
+            )
+              option(value="", selected=!(product && product.gender)) Select Gender
+              option(value="male", selected=(product && product.gender === "male")) Men
+              option(value="female", selected=(product && product.gender === "female")) Women
+              option(value="unisex", selected=(product && product.gender === "unisex")) Unisex
+            .invalid-feedback Please select gender.
+
+        // 📦 Stock
+        .col-lg-4
+          .mb-3
+            label.form-label(for="stock") Stock
+            input.form-control(
+              type="number",
+              id="stock",
+              name="stock",
+              placeholder="Available quantity",
+              value=(product && product.stock) || 0,
+              min="0"
+            )
+
+        // 💰 Price
+        .col-lg-4
+          .mb-3
+            label.form-label(for="price") Price ($)
+            .input-group
+              span.input-group-text
+                i.bx.bx-dollar
+              input.form-control(
+                type="number",
+                id="price",
+                name="price",
+                placeholder="e.g., 100",
+                value=(product && product.price) || 0,
+                min="0"
+              )
+
+        // 🎟️ Discount
+        .col-lg-4
+          .mb-3
+            label.form-label(for="discountPercentage") Discount (%)
+            .input-group
+              span.input-group-text
+                i.bx.bxs-discount
+              input.form-control(
+                type="number",
+                id="discountPercentage",
+                name="discountPercentage",
+                placeholder="e.g., 10",
+                value=(product && product.discountPercentage) || 0,
+                min="0",
+                max="100"
+              )
+
+        // 📏 Size
+        .col-lg-6
+          .mb-3
+            label.form-label Size
+            .d-flex.flex-wrap.gap-2
+              each size in ['S', 'M', 'L', 'XL', 'XXL']
+                input.btn-check(
+                  type="checkbox", 
+                  id=`size-${size}`, 
+                  name="size", 
+                  value=size,
+                  checked=(product && product.sizes && product.sizes.includes(size))
+                )
+                label.btn.btn-outline-primary(for=`size-${size}`) #{size}
+        .col-lg-6
+          .mb-3
+            label.form-label(for="product-discount") Rating
+            .input-group
+              span.input-group-text.fs-20
+                i.fas.fa-star(style="color: #ff5e57;")
+              input.form-control(
+                type="number",
+                id="rating",
+                name="rating",
+                placeholder="Nhập điểm đánh giá",
+                min=1,
+                max=5, 
+                step=0.1 
+                value=product.rating
+              )
+        .col-lg-6
+          .mb-3
+            label.form-label(for="feature") Feature
+            .input-group
+              textarea.form-control.bg-light-subtle.tinymce-app(
+                id="feature",
+                name="feature",
+                placeholder="Nhập đặc điểm nổi bật của sản phẩm",
+                maxlength="255",
+                rows="5"
+              )= (product && product.feature) || ''
+        .col-lg-6
+          .mb-3
+            label.form-label(for="position") Position
+            .input-group
+              input.form-control(
+                type="number",
+                id="position",
+                name="position",
+                value=product.position, 
+                min="1", 
+                placeholder="Nhập vị trí"
+
+              )
+        // 📝 Description
+        .col-lg-12
+          .mb-3
+            label.form-label(for="description") Description
+            textarea.form-control.tinymce-app(
+              id="description",
+              name="description",
+              rows="5",
+              placeholder="Write product description here"
+            )= (product && product.description) || ''
+
+      // 🔘 Action Buttons
+      .p-3.bg-light.rounded.d-flex.justify-content-end.gap-3
+        button.btn.btn-success.px-4(type="submit")
+          i.bx.bx-save-alt.me-1
+          | Save Changes
+        button.btn.btn-secondary.px-4(type="reset")
+          i.bx.bx-reset.me-1
+          | Reset Form

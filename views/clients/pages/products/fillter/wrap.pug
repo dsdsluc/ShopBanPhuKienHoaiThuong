@@ -1,0 +1,106 @@
+div.filter-custom.trigger-filter
+  span Bộ lọc
+  div.groupFilterNew
+    div.contentFilter.clearfix
+      div.collection-filter-price.collection-item
+        div.sidebar-sort
+          div.sort_title
+            span Khoảng giá
+            i.fa.fa-sort-down
+          ul.no-bullets.filter-price.clearfix.sidebar-content
+            li.hide.custom-filter-input(data-filter1="0-max")
+              label
+                input(type="checkbox" name="price-filter" data-price="0:max" data-value="0:max" value="((price:product>=0))")
+                span Tất cả
+            li.custom-filter-input(data-filter1="0-1-000-000")
+              label
+                input(type="checkbox" name="price-filter" data-price="0:1,000,000" data-value="0-1-000-000" value="((price:product<1,000,000))")
+                span Nhỏ hơn 1.000.000₫
+            li.custom-filter-input(data-filter1="1-000-000-3-000-000")
+              label
+                input(type="checkbox" name="price-filter" data-price="1,000,000:3,000,000" data-value="1-000-000-3-000-000" value="((price:product>=1,000,000)&(price:product<3,000,000))")
+                span Từ 1.000.000₫ - 3.000.000₫
+            li.custom-filter-input(data-filter1="3-000-000-5-000-000")
+              label
+                input(type="checkbox" name="price-filter" data-price="3,000,000:5,000,000" data-value="3-000-000-5-000-000" value="((price:product>=3,000,000)&(price:product<5,000,000))")
+                span Từ 3.000.000₫ - 5.000.000₫
+            li.custom-filter-input(data-filter1="5-000-000-7-000-000")
+              label
+                input(type="checkbox" name="price-filter" data-price="5,000,000:7,000,000" data-value="5-000-000-7-000-000" value="((price:product>=5,000,000)&(price:product<7,000,000))")
+                span Từ 5.000.000₫ - 7.000.000₫
+            li.custom-filter-input(data-filter1="7-000-000-10-000-000")
+              label
+                input(type="checkbox" name="price-filter" data-price="7,000,000:10,000,000" data-value="7-000-000-10-000-000" value="((price:product>=7,000,000)&(price:product<10,000,000))")
+                span Từ 7.000.000₫ - 10.000.000₫
+      div.collection-filter-chatlieu.collection-item
+        div.sidebar-sort
+          div.sort_title
+            span Chất liệu
+            i.fa.fa-sort-down
+          ul.chat-lieu.filter-variant.filter-color.clearfix
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.cotton(data-filter="Cotton" data-filter1="cotton")
+                input(type="checkbox" value="(material:product=Cotton)" data-value="cotton")
+                span Cotton
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.polyester(data-filter="Polyester" data-filter1="polyester")
+                input(type="checkbox" value="(material:product=Polyester)" data-value="polyester")
+                span Polyester
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.linen(data-filter="Linen" data-filter1="linen")
+                input(type="checkbox" value="(material:product=Linen)" data-value="linen")
+                span Linen
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.denim(data-filter="Denim" data-filter1="denim")
+                input(type="checkbox" value="(material:product=Denim)" data-value="denim")
+                span Denim
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.silk(data-filter="Silk" data-filter1="silk")
+                input(type="checkbox" value="(material:product=Silk)" data-value="silk")
+                span Lụa
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.wool(data-filter="Wool" data-filter1="wool")
+                input(type="checkbox" value="(material:product=Wool)" data-value="wool")
+                span Len
+      div.collection-filter-loaisanpham.collection-item
+        div.sidebar-sort
+          div.sort_title
+            span Loại sản phẩm
+            i.fa.fa-sort-down
+          ul.chat-lieu.filter-variant.filter-color.clearfix
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.ao-thun(data-filter="Áo Thun" data-filter1="ao-thun")
+                input(type="checkbox" value="(type:product=Áo Thun)" data-value="ao-thun")
+                span Áo Thun
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.ao-so-mi(data-filter="Áo Sơ Mi" data-filter1="ao-so-mi")
+                input(type="checkbox" value="(type:product=Áo Sơ Mi)" data-value="ao-so-mi")
+                span Áo Sơ Mi
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.quan-jean(data-filter="Quần Jean" data-filter1="quan-jean")
+                input(type="checkbox" value="(type:product=Quần Jean)" data-value="quan-jean")
+                span Quần Jean
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.vay(data-filter="Váy" data-filter1="vay")
+                input(type="checkbox" value="(type:product=Váy)" data-value="vay")
+                span Váy
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.jumpsuit(data-filter="Jumpsuit" data-filter1="jumpsuit")
+                input(type="checkbox" value="(type:product=Jumpsuit)" data-value="jumpsuit")
+                span Jumpsuit
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.quan-short(data-filter="Quần Short" data-filter1="quan-short")
+                input(type="checkbox" value="(type:product=Quần Short)" data-value="quan-short")
+                span Quần Short
+            li.chat-lieu-filter
+              label.filter-vendor__item.custom-filter-input.ao-khoac(data-filter="Áo Khoác" data-filter1="ao-khoac")
+                input(type="checkbox" value="(type:product=Áo Khoác)" data-value="ao-khoac")
+                span Áo Khoác
+    
+    include ./chosen.pug
+    div.bottom-filter
+      button.btn-custom-filter ÁP DỤNG
+      button.cancel-filter HỦY
+
+
+

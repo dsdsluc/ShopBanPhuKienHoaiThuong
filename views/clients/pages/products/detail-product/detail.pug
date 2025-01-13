@@ -1,0 +1,79 @@
+form#addToCartForm(action=`/cart/add/${product._id}` method="POST")
+  input(type="hidden" name="quantity" value="1" id="quantityInput")
+  input(type="hidden" name="size" value="" id="sizeInput")
+
+div.product-detail
+  div.product-inf
+    //- Hình ảnh sản phẩm
+    div.product-inf__image
+      div.frame-img
+        if product.thumbnail && product.thumbnail.length > 0
+          img.product-inf__image1(src=product.thumbnail[0] alt=product.title)
+        else
+          img.product-inf__image1(src="/clients/img/no-image.png" alt="No Image Available")
+      div.img-pro
+        each img in product.thumbnail.slice(1)
+          img.product-inf__image3(src=img alt=product.title)
+    //- Thông tin sản phẩm
+    div.product-inf__word
+      p.product-card__collection= (product.product_category_id && product.product_category_id.title) || 'Không rõ danh mục'
+      p.product-inf__title= product.title
+      div.product-inf__star
+        img(src="/clients/icon/sanpham-star.svg" alt="Rating")
+        p(style="color: var(--product-detail-text-color-dark)") #{product.rating || 'N/A'} (#{product.reviews || 0})
+      div.product-price
+        span.product-inf__price= product.priceNew
+        if product.discountPercentage > 0
+          span.product-inf__price-sales= product.price
+      p.product-inf__text Giá tham khảo, có thể thay đổi theo trọng lượng, size tay và giá vàng theo thời điểm
+      div.underline
+      p.product-inf__text1(onclick="openModal()") Hướng dẫn chọn size
+      //- Modal chọn size
+      div#myModal.modal
+        div.modal-content
+          h2(style="font-weight: bold; text-align: center; font-size: 22px") Cách đo size nhẫn
+          p 1. Dùng chỉ hoặc giấy bản nhỏ đo quấn quanh khớp tay, đánh dấu vị trí cắt nhau
+          p 2. Dùng thước đo chiều dài đoạn dây vừa đo được (đơn vị cm)
+          p 3. Từ 4.6cm đến 5.6cm: size S
+          p(style="margin-left: 15px") Từ 5.6cm đến 6.4cm: size M
+          button(onclick="closeModal()") Đóng
+      div.sales-promotion
+        div.sales-promotion1
+          div.return
+            img.img-return(src="/clients/icon/sanpham-return.svg" alt="Return Policy")
+            p.return__text Đổi trả miễn phí trong 72 giờ
+          div.payment
+            img.img-return(src="/clients/icon/sanpham-payment.svg" alt="Installment")
+            p.return__text Trả góp 0%
+        div.sales-promotion1
+          div.guarantee
+            img.img-return(src="/clients/icon/sanpham-guarantee.svg" alt="Warranty")
+            p.return__text Bảo hành trọn đời
+          div.delivery
+            img.img-return(src="/clients/icon/sanpham-delivery.svg" alt="Delivery")
+            p.return__text Miễn phí giao hàng toàn quốc
+      div.size
+        p(style="color: var(--product-detail-text-color-dark)") Size:
+        div.size-dropdown
+          div.selected-size(onclick="toggleSizeList()") Size
+          select#sizeSelect(onchange="selectSize()")
+            option(value="") Chọn size
+            option(value="S") S
+            option(value="M") M
+            option(value="L") L
+            option(value="XL") XL
+            option(value="XXL") XXL
+          div#sizeList.size-list
+            div.size-list-item(onclick="setSize('S')") S
+            div.size-list-item(onclick="setSize('M')") M
+            div.size-list-item(onclick="setSize('L')") L
+            div.size-list-item(onclick="setSize('XL')") XL
+            div.size-list-item(onclick="setSize('XXL')") XXL
+      //- Tăng giảm số lượng
+      div.quantity
+        table.table
+          tr
+            td.dec-ins(onclick="Decrease()") -
+            td#count.dec-ins.count= parseInt(quantity, 10) || 1
+            td.dec-ins(onclick="Increase()") +
+        a.btn.them(href="#!" onclick="submitCartForm()") THÊM VÀO GIỎ HÀNG

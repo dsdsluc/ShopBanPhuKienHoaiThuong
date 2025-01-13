@@ -1,0 +1,14 @@
+div.total-line
+  div
+    form(style="margin-left: 90px" action="/cart/clear?_method=PATCH" method="POST")
+      button(type="submit", class="btn btn-danger btn-sm")
+        label(style="font-size: 20px; font-weight: bold; color: var(--text-color-dark); vertical-align: middle")
+          img(src="/clients/icon/giohang-delete.svg", alt="", style="vertical-align: middle")
+          | Tất cả
+  div.total-tong
+    div.total-tam
+      p(style="font-size: 20px; font-weight: bold; color: var(--text-color-dark)") Tạm tính:
+      p(style="font-size: 20px; font-weight: bold; color: coral") #{cart.totalPrice.toLocaleString()}đ
+    p(style="color: var(--text-color-dark)") (Đã bao gồm thuế VAT)
+    //- Button MUA HÀNG
+    a.btn.them(href="/cart/checkout") MUA HÀNG

@@ -1,0 +1,38 @@
+div.prod-list__pagination
+  div.pagination--container
+    //- Mũi tên "<<"
+    button.pagination--container__button#pagination_startBtn(
+      disabled=pagination.currentPage === 1 
+      onclick="updatePage(1)"
+    )
+      i.fa-solid.fa-angles-left
+
+    //- Mũi tên "<"
+    button.pagination--container__button.prevNext#pagination_prev(
+      disabled=pagination.currentPage === 1 
+      onclick=`updatePage(${pagination.currentPage - 1})`
+    )
+      i.fa-solid.fa-angle-left
+
+    //- Các số trang
+    div.prod-list__pagination--numbers
+      each num in [...Array(pagination.totalPages).keys()].map(n => n + 1)
+        a.link(
+          href=`#`
+          class=(num === pagination.currentPage ? 'active' : '')
+          onclick=`updatePage(${num})`
+        )= num
+
+    //- Mũi tên ">"
+    button.pagination--container__button.prevNext#pagination_next(
+      disabled=pagination.currentPage === pagination.totalPages 
+      onclick=`updatePage(${pagination.currentPage + 1})`
+    )
+      i.fa-solid.fa-angle-right
+
+    //- Mũi tên ">>"
+    button.pagination--container__button#pagination_endBtn(
+      disabled=pagination.currentPage === pagination.totalPages 
+      onclick=`updatePage(${pagination.totalPages})`
+    )
+      i.fa-solid.fa-angles-right

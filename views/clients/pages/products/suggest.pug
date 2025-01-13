@@ -1,0 +1,43 @@
+each product in products
+  if product.isFeatured 
+    div.card.swiper-slide
+      div.prod-list__item__image
+        a(href=`/clients/sanpham/${product.slug}`)
+          img.prod-list__item__img1(
+            loading="lazy"
+            alt=product.title
+            src=product.thumbnail[0] 
+          )
+        if product.discountPercentage > 0
+          span.product-sale-tag
+            span SALE!
+        div.button-heart-cart-hover
+          a(href="#!")
+            img.prod-list__item__image--heart-hover(
+              src="/clients/icon/heart.svg"
+              alt=""
+              onclick="heart(this)"
+            )
+          a(href=`/clients/sanpham/${product.slug}`)
+            img.prod-list__item__image--cart-hover(
+              src="/clients/icon/cart.svg"
+              alt=""
+            )
+      div.prod-list__item__inner
+        div.prod-list__item__inner--child
+          div.prod-list__item__info
+            div.prod-list__item__info--title
+              a(href=`/clients/sanpham/${product.slug}`) #{product.title}
+            div.prod-list__item__info--masp Sản phẩm
+          div.prod-list__item__info--price-fb
+            div.prod-list__item--price
+              span.prod-list__item__info--price #{product.priceNew.toLocaleString()} VNĐ
+              if product.discountPercentage > 0
+                span.prod-list__item__info--price-sales #{product.price.toLocaleString()} VNĐ
+            div.prod-list__item__info--star-icon
+              img.info--star-icon(
+                loading="lazy"
+                alt=""
+                src="/clients/icon/star.svg"
+              )
+              div.prod-list__item__info--fb #{product.rating.toFixed(1)}

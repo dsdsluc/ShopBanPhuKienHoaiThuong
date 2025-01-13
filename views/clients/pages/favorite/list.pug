@@ -1,0 +1,25 @@
+// Product
+main.product-list
+  section.product-grid
+    each product in favorite.products
+      article.product-column
+        .delete-icon
+          a(href=`/favorite/remove/${product.product_id._id}`)
+            img(src="/clients/icon/yeuthich-delete.svg" alt="Delete icon")
+            span Xóa
+        .product-card
+          .product-image-wrapper
+            figure.product-image
+              img(src=product.product_id.thumbnail[0] alt=product.product_id.title)
+            h3.product-name #{product.product_id.title}
+            p.product-DM Sản phẩm yêu thích
+            .product-info
+              - const discountedPrice = product.product_id.price - (product.product_id.price * (product.product_id.discountPercent || 0) / 100);
+              span.product-price Giá: #{discountedPrice.toLocaleString('vi-VN')} VNĐ
+              .product-rating
+                span.star-icon ★
+                | #{product.product_id.rating}
+            form#addToCartForm(action=`/cart/add/${product.product_id._id}` method="POST")
+              input(type="hidden" name="quantity" value="1" id="quantityInput")
+              input(type="hidden" name="size" value="M" id="sizeInput")    
+              button.add-to-cart-btn Thêm vào giỏ hàng

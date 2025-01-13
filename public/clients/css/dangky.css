@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: #717171;
+  --text-color-1: #000000;
+  --text-color-2: #696969;
+  --primary-color: #ffbe984d;
+  --nav-color: #717171;
+  --outline-color: none;
+  --background-color: #ffbe984d;
+  --background-color-0: #fff;
+  --background-color-1: #fff;
+  --background-color-2: #f6f6f6;
+  --background-color-3: #ffbe984d;
+}
+
+.dark-mode {
+  --text-color: #eeeeee;
+  --text-color-1: #eeeeee;
+  --text-color-2: #9e9da8;
+  --primary-color: #ffbe98;
+  --nav-color: #171c28;
+  --outline-color: #ffbe984d;
+  --background-color: #292e39;
+  --background-color-0: #292e39;
+  --background-color-1: #171c28;
+  --background-color-2: #292e39;
+  --background-color-3: #171c28;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--background-color-1);
+  font-family: Quicksand, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* Phân chia không gian giữa các phần tử con */
+  align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc */
+  background-color: var(--background-color-1); /* Màu nền của header */
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.header a {
+  color: #ffbe98;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+}
+.header a:visited {
+  color: #ffbe98; /* Giữ màu chữ nguyên thủy sau khi liên kết đã được truy cập */
+}
+.logo-left {
+  position: sticky; /* Đặt vị trí cố định */
+  justify-content: space-between;
+  gap: 15px; /* Khoảng cách giữa các phần tử con */
+  height: 75px;
+  flex: 1; /*cho phép phần tử .logo-left mở rộng để điền vào không gian dư thừa trong trường hợp cần thiết.*/
+  font-size: 40px;
+  flex-direction: row;
+  padding: 16px 25px 16px;
+  align-items: flex-end;
+  align-self: stretch; /*phần tử con sẽ được kéo dài để lấp đầy toàn bộ chiều cao của flex container trong chiều dọc (theo trục chính). Điều này đảm bảo rằng phần tử con sẽ căn chỉnh về đỉnh và đáy của flex container và có cùng chiều cao với các phần tử con khác trong cùng một hàng.*/
+  box-sizing: border-box; /*padding và border sẽ được tính vào kích thước tổng của phần tử.*/
+  display: flex; /*Chỉ định rằng phần tử được áp dụng các thuộc tính flexbox, biến nó thành một flex container.*/
+  justify-content: flex-start; /*Căn các phần tử con theo chiều ngang của flex container về phía trái (bên trái của container)*/
+  max-width: 100%; /*flex container không sẽ vượt quá chiều rộng của không gian chứa của nó, giữ nó linh hoạt và phù hợp với kích thước màn hình*/
+}
+.logo-left .logo1 {
+  height: 42px;
+  float: left; /* Đặt .logo-icon bên trái */
+  object-fit: cover;
+  position: relative;
+}
+.logo-left .logo1-text {
+  font-size: 42px;
+  font-weight: 700;
+  font-family: quicksand;
+  line-height: 43px; /* Đặt độ cao dòng của văn bản trong .logo1-text là 45px. Điều này sẽ ảnh hưởng đến cách mà các dòng văn bản được căn chỉnh trong phần tử*/
+  color: #ffbe98;
+}
+
+.frame-right {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 25px 16px;
+  gap: 27px;
+  height: 75px;
+  max-width: 100%;
+  position: sticky; /* Sử dụng vị trí dính */
+  top: 0; /* Đặt vị trí ở trên cùng */
+  right: 0; /* Đặt vị trí ở phía bên phải cách lề phải 0px */
+}
+.frame-right .asking {
+  font-family: quicksand;
+  font-size: 20px;
+  align-self: center;
+  color: #9e9da8;
+}
+.frame-right .btn-signin {
+  cursor: pointer;
+  border: 1px solid #ffbe98;
+  padding: 5px 15px 5px;
+  background-color: var(--background-color-1);
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+.frame-right a {
+  color: #ffbe98;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+}
+.frame-righ a:visited {
+  color: #ffbe98; /* Giữ màu chữ nguyên thủy sau khi liên kết đã được truy cập */
+}
+.frame-right .btn-signin:hover {
+  border: 1px solid #ef9059;
+}
+.frame-right .btn-signin-text {
+  font-family: quicksand;
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffbe98;
+}
+.frame-right .btn-signin-text:hover {
+  color: #ef9059;
+}
+.frame-right .dark {
+  cursor: pointer;
+  height: 37px;
+  width: 37px;
+  position: relative;
+  border-radius: 7px;
+  border: none; /* Loại bỏ đường viền */
+  background-color: var(--primary-color);
+}
+.frame-right .moon-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%; /* Di chuyển lên 50% từ phía trên của .dark */
+  left: 50%; /* Di chuyển sang trái 50% từ phía trái của .dark */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Dịch chuyển ngược lại 50% của kích thước của chính nó */
+}
+
+.line1 {
+  align-self: stretch;
+  height: 3px;
+  position: relative;
+  border-top: 3px solid #ffbe98;
+  box-sizing: border-box;
+  margin: 0 23px 14px;
+}
+
+/* === BODY === */
+/* ===== B-LEFT ===== */
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+  flex-direction: row;
+  padding: 0 25px 0;
+  box-sizing: border-box;
+  overflow: auto; /* Ngăn các phần tử con bị tràn ra ngoài */
+}
+.main-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+  align-self: stretch;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+.ads-left {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 40%;
+  width: 100%;
+  flex: 1;
+  border-radius: 9px 0 0 9px;
+  padding: 0 0;
+  overflow: hidden;
+  height: 100%;
+}
+.ads-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+/* ===== B-RIGHT ===== */
+.container-right {
+  max-width: 60%;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  border: 2px solid var(--outline-color);
+  padding: 45px 25px 34px;
+  border-radius: 0 9px 9px 0;
+  font-family: quicksand;
+}
+.container-right .title {
+  font-size: 45px;
+  font-weight: 700;
+  position: relative;
+  font-family: quicksand;
+  color: #ef9059;
+  text-align: center;
+}
+.container-right form .user-details {
+  display: flex;
+  flex-wrap: wrap; /*2 columns*/
+  justify-content: space-between;
+  margin: 30px 30px 20px;
+}
+form .user-details .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+.user-details .input-box .text {
+  margin-bottom: 5px;
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-block;
+  color: var(--text-color-2);
+}
+.check-box {
+  margin-bottom: 33px;
+}
+.check-box .text {
+  position: relative;
+  font-size: 15px;
+  color: var(--text-color-2);
+}
+.user-details .input-box .span,
+.check-box .span {
+  color: red;
+}
+form .user-details .input-box input,
+.user-details .input-box .box {
+  height: auto;
+  width: 100%;
+  outline: none;
+  border-radius: 7px;
+  border: 2px solid #ffbe98;
+  background-color: var(--background-color-0);
+  color: var(--text-color-1);
+  padding: 9px 12px;
+  font-size: 14px;
+  font-weight: 480;
+  font-family: quicksand;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+form .button {
+  width: 100%;
+  height: 100%;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.button-signup {
+  cursor: pointer;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 12px 15px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background: #ffbe98;
+  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: quicksand;
+  color: white;
+  letter-spacing: 1px;
+  justify-content: center;
+}
+form .button-signup:hover {
+  background-color: #ef9059;
+}
+
+.line2 {
+  align-self: stretch;
+  height: 3px;
+  position: relative;
+  border-top: 3px solid #ffbe98;
+  box-sizing: border-box;
+  margin: 14px 23px 14px;
+}
+
+@media (max-width: 900px) {
+  .frame-right .dark {
+    height: 50px;
+    width: 70px;
+  }
+  .main-inner {
+    max-width: 100%;
+    flex-direction: column;
+  }
+  .ads-left {
+    max-width: 700px;
+    border-radius: 9px 9px 0 0;
+  }
+  .container-right {
+    max-width: 700px;
+    border-radius: 0 0 9px 9px;
+  }
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .container-right form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar {
+    width: 0;
+  }
+}

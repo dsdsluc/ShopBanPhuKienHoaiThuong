@@ -1,0 +1,12 @@
+div.explore-dm
+  h2.explore-dm--text DANH MỤC ƯA CHUỘNG
+  div.explore-dm--content(style="width: 70%; display: inline-block")
+    p Với sự sáng tạo không ngừng, chúng tôi tin rằng mỗi sản phẩm sẽ góp phần tạo nên phong cách của riêng bạn và là điểm nhấn nhá tuyệt vời mỗi khi bạn xuất hiện
+  div.container-listing
+    each item in categoriesFeature
+      div.listing-title
+        a.listing-tile__link(href=`/products?category=${item.slug}`)
+          figure.listing-tile__image
+            img(src=item.thumbnail alt=item.title)
+          div.listing-tile__content
+            p.listing-tile__title#TatCa #{item.title}

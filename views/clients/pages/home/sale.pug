@@ -1,0 +1,29 @@
+section#product-sale
+  .container
+    h2 Danh mục được yêu thích nhất
+    .prod-list__grid
+      each item in categories
+        section.prod-list__item
+          .prod-list__item__image
+            a(href=`/products?category=${item.slug}`)
+              img.prod-list__item__img1(src=item.thumbnail loading="lazy" alt="")
+            span.product-sale-tag
+              span NEWS!
+            .button-heart-cart-hover
+              a(href="")
+                img.prod-list__item__image--heart-hover(src="/clients/icon/heart.svg" alt="" onclick="heart(this)")
+              a(href=`/products?category=${item.slug}`)
+                img.prod-list__item__image--cart-hover(src="/clients/icon/cart.svg" alt="")
+          .prod-list__item__inner
+            .prod-list__item__inner--child
+              .prod-list__item__info
+                .prod-list__item__info--title
+                  a(href=`/products?category=${item.slug}`) #{item.title}
+                .prod-list__item__info--masp #{item.description}
+              .prod-list__item__info--price-fb
+                .prod-list__item__info--star-icon
+                  img.info--star-icon(src="/clients/icon/star.svg" loading="lazy" alt="")
+                  .prod-list__item__info--fb 4.3
+      
+  
+

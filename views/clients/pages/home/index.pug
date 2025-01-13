@@ -1,0 +1,26 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block css 
+  link(rel="stylesheet" href="/clients/css/index.css")
+
+block main
+  +alert-success(message, 5000)
+  +alert-error(message, 5000)
+  include ./slider.pug
+
+  .main 
+    include ./sale.pug
+    div.line
+
+    include ./collection.pug
+    div.line
+    include ./product-best-seller.pug
+    div.line
+    include ./review.pug
+    include ./letter.pug
+
+  block script
+    script(src="/clients/js/index.js")
+
+

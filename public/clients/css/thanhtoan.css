@@ -1,0 +1,409 @@
+:root {
+  /* Header */
+  --index-text-color-1: hsl(0, 0%, 44%);
+  --index-text-color-2: #1a162e;
+  --index-primary-color: #ef9059;
+  --index-background-color-1: #fff;
+  --index-background-color-2: #fff;
+  --index-background-color-3: #f0f0f0;
+  --index-second-color: #fff5f0;
+  --text-color-1: #717171;
+  /* product-card__title */
+  --text-color-2: #1a162e;
+  --primary-color: #ef9059;
+  --nav-color: #717171;
+  --background-color-1: #fff;
+  --background-color-2: #f6f6f6;
+  --second-color: #fff5f0;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background: #f3f0f0;
+  font-size: 1.8rem;
+  font-family: Quicksand, sans-serif;
+}
+
+.container {
+  max-width: calc(100% - 50px);
+  margin-left: auto;
+  margin-right: auto;
+}
+.container a {
+  text-decoration: none;
+}
+
+.fixed-header {
+  position: relative;
+  background-color: var(--background-color-1);
+  padding: 10px 0px;
+  overflow: hidden;
+}
+
+/* DARK - MODE */
+body.dark {
+  /* Header */
+  --index-text-color-1: #eeeeee;
+  --index-text-color-2: #ffffff;
+  --index-primary-color: #ef9059;
+  --index-background-color-1: #171c28;
+  --index-background-color-2: #292e39;
+  --index-background-color-3: #171c28;
+  --index-second-color: #e6c299;
+  background-color: #292e39;
+  color: var(--background-color-1);
+}
+body.dark header {
+  background-color: black;
+}
+body.dark header nav ul a {
+  color: var(--background-color-1);
+}
+body.dark .top-act .top-act-btn #moon {
+  fill: none;
+}
+/* ------------ */
+/* HEADER-QUẢN-LÝ-HÓA-ĐƠN*/
+.navbar-admin ul a {
+  margin: auto 10px;
+  color: #f3f0f0;
+  font-weight: bold;
+}
+.navbar-admin ul a:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+/* QUẢN-LÝ-HÓA-ĐƠN*/
+.QL-wrap {
+  margin: 20px auto;
+  background: rgb(255, 255, 255);
+  padding: 10px 50px;
+}
+.QLDH {
+  display: flex;
+  justify-content: space-between;
+}
+.QLDH a {
+  background-color: #ffbe98;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 20px;
+  color: #0f0f0f;
+}
+.QLDH a:hover {
+  background: #fe853e;
+}
+.QL-wrap1 {
+  background-color: rgb(255, 255, 255);
+  margin: 10px 50px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.search {
+  display: flex;
+  justify-content: center;
+}
+.search img {
+  cursor: pointer;
+}
+.search img:hover {
+  border-radius: 5px;
+  background: #aeaeae;
+}
+.search input {
+  height: 30px;
+  width: 230px;
+  border: 1px solid;
+  border-radius: 10px;
+  padding-left: 20px;
+}
+.bang {
+  margin-top: 20px;
+  display: grid;
+  padding: auto;
+}
+.bang table,
+th,
+td {
+  text-align: center;
+  padding: 5px;
+}
+.bang table th {
+  background-color: #ffbe98;
+}
+
+/* HÓA ĐƠN */
+.wrapper {
+  display: flex;
+  max-width: 816px;
+  margin: 20px auto;
+  font-family: Quicksand;
+}
+h2, h3{
+  font-size: 1.2em;
+  margin: 20px auto;
+  font-weight: bold;
+}
+.thong-tin-hoa-don {
+  flex-basis: 50%;
+  justify-content: center;
+}
+.thong-tin-hoa-don input {
+  /* margin-top: 10px; */
+  width: 90%;
+  border-radius: 10px;
+  border: 1px solid rgb(75, 74, 74);
+  height: 35px;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  background-color: #f3f0f0;
+}
+.hoa-don-cua-ban {
+  flex-basis: 50%;
+  margin-left: 50px;
+}
+.hoa-don-cua-ban div {
+  margin-bottom: 20px;
+}
+.hoa-don-cua-ban div b {
+  float: right !important;
+  font-weight: bold;
+}
+.phuong-thuc-thanh-toan {
+  border-bottom: 1px solid rgb(147, 145, 145);
+}
+.momo img {
+  height: 30px;
+  float: right;
+}
+.hd {
+  padding-top: 22px;
+  border-top: 1px solid rgb(147, 145, 145);
+  border-bottom: 1px solid rgb(147, 145, 145);
+}
+.coupon {
+  float: right;
+  border-radius: 10px;
+  border: 1px solid rgb(75, 74, 74);
+  height: 25px;
+  padding-left: 10px;
+  width: 40%;
+}
+.hoa-don-cua-ban button {
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid rgb(147, 145, 145);
+  background: linear-gradient(0deg, #ef9059 0%, #ef9059 100%), #ffbe98;
+  width: 40%;
+  justify-content: center;
+  cursor: pointer;
+  color: #f6f6f6;
+  font-weight: bold;
+}
+.hoa-don-cua-ban button:hover {
+  background: #f46b1c;
+}
+@media (max-width:790px){
+  .wrapper{
+    flex-wrap: wrap;
+    margin: auto 20px ;
+  }
+  .thong-tin-hoa-don{
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+  .hoa-don-cua-ban{
+    max-width: 100%;
+    flex-basis: 100%;
+    margin: auto ;
+    padding-right: 20px;
+  }
+  .hoa-don-cua-ban button{
+    margin-bottom: 40px;
+  }
+}
+
+/* VỀ-CHÚNG-TÔI */
+.content1 img {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+.ve-chung-toi-wrap {
+  background-color: #ffbe98;
+  height: 370px;
+  max-width: auto;
+  padding: 70px 100px;
+  border-radius: 10px;
+}
+
+.ve-chung-toi {
+  display: flex;
+}
+.ve-chung-toi div {
+  flex-basis: 40%;
+  text-align: justify;
+}
+.ve-chung-toi img {
+  flex-basis: 50%;
+  margin-left: 20%;
+  max-height: 360px;
+  max-width: 360px;
+  border-radius: 10px;
+}
+
+.su-menh {
+  display: flex;
+  height: 370px;
+  max-width: auto;
+  margin: 70px 100px;
+}
+.su-menh img {
+  flex-basis: 50%;
+  max-height: 360px;
+  max-width: 480px;
+  border-radius: 10px;
+}
+.su-menh div {
+  margin-left: 10%;
+  flex-basis: 40%;
+  text-align: justify;
+}
+.tam-nhin {
+  display: flex;
+  height: 370px;
+  max-width: auto;
+  margin: 70px 100px;
+}
+.tam-nhin div {
+  flex-basis: 40%;
+  text-align: justify;
+}
+.tam-nhin img {
+  flex-basis: 50%;
+  margin-left: 18%;
+  max-height: 360px;
+  max-width: 410px;
+  border-radius: 10px;
+}
+.thanh-vien {
+  max-width: auto;
+  margin: 70px 100px;
+  text-align: center;
+}
+.ba-thanh-vien {
+  display: flex;
+  margin: 40px auto;
+}
+.ba-thanh-vien div {
+  flex-basis: 40%;
+}
+/* ===== Footer ===== */
+.footer-row {
+  padding: 55px 0;
+  background: #131717;
+}
+
+.footer-row .container {
+  display: grid;
+  grid-template-columns: 1fr 0.3fr 0.3fr 0.3fr;
+  column-gap: 78px;
+}
+
+.logo-foot {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.logo-foot img {
+  transform: scale(2);
+}
+
+.logo-foot .logo-title {
+  color: var(--primary-color);
+  margin-left: 30px;
+  color: #ffbe98;
+  font-size: 76px;
+  font-weight: 700;
+}
+
+.download-title {
+  margin-top: 57px;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.download-method {
+  margin-top: 17px;
+}
+
+.download-method .app-store {
+  margin-left: 18px;
+}
+
+.footer__heading {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.footer__list {
+  margin-top: 24px;
+}
+
+.footer__item {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+  color: #cecdd7;
+  line-height: 162.5%;
+}
+
+.footer__link {
+  font-size: 1.6rem;
+  color: #cecdd7;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__social {
+  padding-top: 24px;
+  display: flex;
+  column-gap: 5px;
+}
+
+.footer__social-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background-color: #404b4b;
+}
+
+.footer__social-btn img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.footer-copyright {
+  background-color: #f6f6f6;
+}
+
+.footer__copyright-text {
+  text-align: center;
+  color: #0f0f0f !important;
+}
+
+.footer-copyright .container {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-copyright .payment-method img {
+  margin-right: 27px;
+}

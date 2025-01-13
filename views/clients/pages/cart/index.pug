@@ -1,0 +1,23 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block css 
+  link(rel="stylesheet" href="/clients/css/giohang.css")
+
+block main
+  +alert-success(message, 5000)
+  +alert-error(message, 5000)
+  if cart.items && cart.items.length > 0
+    include ./product-chosen.pug
+    include ./total.pug
+    include ./similar.pug
+  else
+    div.cart-empty(style="text-align: center; padding: 50px 20px;")
+      h2(style="font-size: 24px; font-weight: bold; color: var(--text-color-dark);") Giỏ hàng của bạn đang trống
+      p.mt-3(style="font-size: 16px; color: var(--text-color-3); margin-bottom: 30px;") Bạn chưa thêm sản phẩm nào vào giỏ hàng. Hãy khám phá thêm sản phẩm của chúng tôi!
+      a.btn.btn-primary(href="/products", style="padding: 10px 20px; font-size: 16px; text-transform: uppercase;") Tiếp tục mua sắm
+
+  block script
+    script(src="/clients/js/giohang.js")
+
+

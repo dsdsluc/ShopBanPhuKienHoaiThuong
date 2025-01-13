@@ -1,0 +1,31 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block main
+  +alert-error(message)
+  +alert-success(message)
+  if( role.permissions.includes("products_category-view"))
+    .container
+      .row.g-4
+        
+        .col-lg-4
+          .card
+            .card-body
+              img.img-fluid.bg-light.rounded.mb-3(src=category.thumbnail || '/images/default-category.jpg', alt="Category Thumbnail")
+              h4.text-center.fw-medium= category.title || "Untitled Category"
+              p.text-muted.text-center= category.description || "No description available"
+
+            .card-footer.border-top
+              .d-flex.gap-2
+                a.btn.btn-soft-primary.w-50.d-flex.align-items-center.justify-content-center(href=`/${prefixAdmin}/category/edit/${category.slug}`)
+                  i.bx.bx-edit-alt.fs-18.me-2
+                  | Edit
+                a.btn.btn-soft-danger.w-50.d-flex.align-items-center.justify-content-center(href=`/${prefixAdmin}/category/delete/${category.slug}`)
+                  i.bx.bx-trash-alt.fs-18.me-2
+                  | Delete
+
+        
+        .col-lg-8
+          include ./detail-card.pug
+
+

@@ -1,0 +1,71 @@
+doctype html
+html(lang="vn")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    //- Chỉnh biểu tượng web
+    link(rel="shortcut icon" href="/clients/icon/Logo.svg")
+
+    title Bear - Jewelry: Nơi Vẻ Đẹp Tỏa Sáng Trong Từng Thiết Kế
+
+    //- Google Fonts
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" 
+      rel="stylesheet"
+    )
+    link(
+      href="https://fonts.googleapis.com/css2?family=Prata&display=swap" 
+      rel="stylesheet"
+    )
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+
+    link(rel="stylesheet" href="/clients/css/swiper10-bundle.min.css")
+    link(rel="stylesheet" href="/clients/css/style.css")
+    link(rel="stylesheet" href="/clients/css/bootstrap-5.3.2.min.css")
+    link(rel="stylesheet" href="/clients/css/nouislider.min.css")
+    link(rel="stylesheet" href="/clients/css/aos-3.0.0.css")
+    //- Styles
+    link(rel="stylesheet" href="/clients/css/reset.css")
+    link(rel="stylesheet" href="/clients/css/header.css")
+    link(rel="stylesheet" href="/clients/css/footer.css")
+    link(rel="stylesheet" href="/clients/css/general.css")
+    block css 
+    
+
+
+  body
+    header
+      include ../partials/zalo.pug
+      include ../partials/header/header-top.pug
+      include ../partials/header/header
+
+    block main
+
+    footer
+      include ../partials/footer-section/footer-section.pug
+    
+    script(src="/clients/js/jquery_3.7.1.min.js")
+
+      //- bootstrap-js
+    script(src="/clients/js/bootstrap_5.3.2.bundle.min.js")
+
+      //- Range-Slider-js
+    script(src="/clients/js/nouislider.min.js")
+
+      //- scroll-Animation-js
+    script(src="/clients/js/aos-3.0.0.js")
+
+      //- swiper-js
+    script(src="/clients/js/swiper10-bundle.min.js")
+
+      //- additional-js
+    script(src="/clients/js/ecoshop.js")
+    script(src="/clients/js/index.js")
+    script(src="/clients/js/header.js")
+    
+    script(src="/clients/js/general.js")
+    block script
+    

@@ -1,0 +1,447 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: #717171;
+  --text-color-1: #000000;
+  --text-color-2: #696969;
+  --primary-color: #ffbe984d;
+  --nav-color: #717171;
+  --outline-color: none;
+  --background-color: #ffbe984d;
+  --background-color-0: #fff;
+  --background-color-1: #fff;
+  --background-color-2: #f6f6f6;
+  --background-color-3: #ffbe984d;
+}
+.dark-mode {
+  --text-color: #eeeeee;
+  --text-color-1: #eeeeee;
+  --text-color-2: #9e9da8;
+  --primary-color: #ffbe98;
+  --nav-color: #171c28;
+  --outline-color: #ffbe984d;
+  --background-color: #292e39;
+  --background-color-0: #292e39;
+  --background-color-1: #171c28;
+  --background-color-2: #292e39;
+  --background-color-3: #171c28;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-family: quicksand;
+  background-color: var(--background-color-1);
+}
+
+.header {
+  display: flex;
+  background-color: var(--background-color-1); /* Màu nền của header */
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.header a {
+  color: #ffbe98;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+}
+.header a:visited {
+  color: #ffbe98; /* Giữ màu chữ nguyên thủy sau khi liên kết đã được truy cập */
+}
+.logo-left {
+  position: sticky; /* Đặt vị trí cố định */
+  justify-content: space-between;
+  gap: 15px; /* Khoảng cách giữa các phần tử con */
+  height: 75px;
+  flex: 1; /*cho phép phần tử .logo-left mở rộng để điền vào không gian dư thừa trong trường hợp cần thiết.*/
+  font-size: 40px;
+  flex-direction: row;
+  padding: 16px 25px 16px;
+  align-items: flex-end;
+  align-self: stretch; /*phần tử con sẽ được kéo dài để lấp đầy toàn bộ chiều cao của flex container trong chiều dọc (theo trục chính). Điều này đảm bảo rằng phần tử con sẽ căn chỉnh về đỉnh và đáy của flex container và có cùng chiều cao với các phần tử con khác trong cùng một hàng.*/
+  box-sizing: border-box; /*padding và border sẽ được tính vào kích thước tổng của phần tử.*/
+  display: flex; /*Chỉ định rằng phần tử được áp dụng các thuộc tính flexbox, biến nó thành một flex container.*/
+  justify-content: flex-start; /*Căn các phần tử con theo chiều ngang của flex container về phía trái (bên trái của container)*/
+  max-width: 100%; /*flex container không sẽ vượt quá chiều rộng của không gian chứa của nó, giữ nó linh hoạt và phù hợp với kích thước màn hình*/
+}
+.logo-left .logo1 {
+  height: 42px;
+  float: left; /* Đặt .logo-icon bên trái */
+  object-fit: cover;
+  position: relative;
+}
+.logo-left .logo1-text {
+  font-size: 42px;
+  font-weight: 700;
+  font-family: quicksand;
+  line-height: 43px; /* Đặt độ cao dòng của văn bản trong .logo1-text là 45px. Điều này sẽ ảnh hưởng đến cách mà các dòng văn bản được căn chỉnh trong phần tử*/
+  color: #ffbe98;
+}
+
+.frame-right {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 25px 16px;
+  gap: 27px;
+  height: 75px;
+  max-width: 100%;
+  position: sticky; /* Sử dụng vị trí dính */
+  top: 0; /* Đặt vị trí ở trên cùng */
+  right: 0; /* Đặt vị trí ở phía bên phải cách lề phải 0px */
+}
+.frame-right .asking {
+  font-family: quicksand;
+  font-size: 20px;
+  align-self: center;
+  color: #9e9da8;
+}
+.frame-right .btn-signup {
+  cursor: pointer;
+  border: 1px solid #ffbe98;
+  padding: 5px 15px 5px;
+  background-color: var(--background-color-1);
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+.frame-right a {
+  color: #ffbe98;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+}
+.frame-righ a:visited {
+  color: #ffbe98; /* Giữ màu chữ nguyên thủy sau khi liên kết đã được truy cập */
+}
+.frame-right .btn-signup:hover {
+  border: 1px solid #ef9059;
+}
+.frame-right .btn-signup-text {
+  font-family: quicksand;
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffbe98;
+}
+.frame-right .btn-signup-text:hover {
+  color: #ef9059;
+}
+.frame-right .dark {
+  cursor: pointer;
+  height: 37px;
+  width: 37px;
+  position: relative;
+  border-radius: 7px;
+  border: none; /* Loại bỏ đường viền */
+  background-color: var(--primary-color);
+}
+.frame-right .moon-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%; /* Di chuyển lên 50% từ phía trên của .dark */
+  left: 50%; /* Di chuyển sang trái 50% từ phía trái của .dark */
+  transform: translate(-50%,-50%); /* Dịch chuyển ngược lại 50% của kích thước của chính nó */
+}
+
+.line1 {
+  align-self: stretch;
+  height: 3px;
+  position: relative;
+  border-top: 3px solid #ffbe98;
+  box-sizing: border-box;
+  margin: 0 23px 14px;
+}
+
+/*BODY*/
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+  flex-direction: row;
+  padding: 0 25px 0;
+  box-sizing: border-box;
+  overflow: auto; /* Ngăn các phần tử con bị tràn ra ngoài */
+}
+.main-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 100%;
+  align-self: stretch; /* Đảm bảo các phần tử con sẽ căng ra để phù hợp với chiều cao của main-inner */
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+.ads-left {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 65%;
+  border-radius: 9px 0 0 9px;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+}
+.slider {
+  width: 924.81px;
+  max-width: 100vw;
+  height: 595.2px;
+  margin: auto; /*can le tu dong*/
+  position: relative;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+.list {
+  position: absolute; /*can chinh theo cha slider*/
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  width: max-content;
+  transition: 1s;
+  scroll-behavior: smooth;
+}
+.list img {
+  width: 924.81px;
+  max-width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+.buttons {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+}
+.buttons button {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff5;
+  color: #fff;
+  border: none;
+  font-family: quicksand;
+  font-weight: bold;
+  font-size: large;
+}
+.dots {
+  position: absolute;
+  bottom: 10px;
+  color: #fff;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.dots li {
+  list-style: none;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 20px;
+}
+.dots li.active {
+  width: 40px;
+}
+
+.signin-info {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 35%;
+  width: 100%;
+  border-radius: 0 9px 9px 0;
+  background-color: var(--background-color);
+  border: 2px solid #ffbe984d;
+  flex-direction: column;
+  padding: 128px 20px 123px;
+  align-items: center;
+  z-index: 1;
+  gap: 40px;
+  max-height: 100%; /* Sử dụng 50% chiều cao của viewport */
+  overflow: hidden;
+}
+.signin-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  font-size: 45px;
+  font-weight: 700;
+  font-family: quicksand;
+  color: #ef9059;
+  text-align: center;
+}
+.signin-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+}
+.username-container,
+.password-container {
+  flex-direction: column;
+  justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
+}
+.username-text,
+.pass-text,
+.span {
+  position: relative;
+  font-size: 17px;
+  font-weight: 600;
+  display: inline-block;
+  font-family: quicksand;
+  color: var(--text-color-2);
+  text-align: left;
+}
+.username-box,
+.password-box {
+  border: 2.5px solid #ffbe98;
+  outline: none;
+  background-color: var(--background-color-0);
+  position: relative;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 350px;
+  height: 40%;
+  margin: 5px 0 30px;
+  font-size: 15px;
+  color: var(--text-color-1);
+  padding: 12px 15px 12px 15px;
+}
+.username-box {
+  margin: 5px 0 30px;
+}
+.span {
+  position: relative;
+  font-size: 17px;
+  display: inline-block;
+  font-family: quicksand;
+  text-align: left;
+  color: red;
+}
+.pass-text {
+  color: var(--text-color-2);
+}
+.password-box {
+  margin: 5px 0 3px;
+}
+/*.forget-pass a {
+  position: relative;
+  font-size: 15px;
+  color: #ef9059;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: quicksand;
+  color: #ef9059;
+  text-align: left;
+  display: inline-block;
+}
+.forget-pass a:hover {
+  text-decoration: underline;
+}*/
+
+.button {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  /*gap: 23px;*/
+}
+.button-signin {
+  cursor: pointer;
+  border: 0;
+  width: 100%;
+  min-width: 350px;
+  height: 100%;
+  padding: 14px 15px 14px 15px;
+  align-self: stretch;
+  border-radius: 10px;
+  background: #ffbe98;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+.button-signin:hover {
+  background-color: #ef9059;
+}
+.button-signin-text {
+  position: relative;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline-block;
+  font-family: quicksand;
+  color: white;
+  text-align: center;
+}
+
+.line2 {
+  align-self: stretch;
+  height: 3px;
+  position: relative;
+  border-top: 3px solid #ffbe98;
+  box-sizing: border-box;
+  margin: 14px 23px 14px;
+}
+@media (max-width: 900px) {
+  .frame-right .dark {
+    height: 50px;
+    width: 70px;
+  }
+  .main-inner {
+    max-width: 100%;
+    flex-direction: column;
+  }
+  .ads-left {
+    max-width: 100%;
+    border-radius: 9px 9px 0 0;
+  }
+  .signin-info {
+    border-radius: 0 0 9px 9px;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 5%;
+  }
+  .signin-title {
+    margin: 0;
+  }
+  .signin-input .username-box {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  .signin-input .password-box {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .signin-input {
+    margin-top: 0;
+    max-height: 100%;
+    overflow-y: scroll;
+  }
+  .signin-input::-webkit-scrollbar {
+    width: 0;
+  }
+}

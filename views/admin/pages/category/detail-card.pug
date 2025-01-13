@@ -1,0 +1,64 @@
+.card
+  .card-header.bg-primary.text-white
+    h4 Category Details
+
+  .card-body
+    .row.g-3
+      // Trạng thái
+      .col-lg-6
+        p.mb-1.fw-medium Status:
+        h5.text-muted= category.status || "N/A"
+
+      // Người tạo
+      .col-lg-6
+        p.mb-1.fw-medium Created By:
+        h5.text-muted= category.createdBy && category.createdBy.fullName ? category.createdBy.fullName : "Unknown"
+
+      // Danh mục cha
+      .col-lg-6
+        p.mb-1.fw-medium Parent Category:
+        h5.text-muted= category.parent_id && category.parent_id.title ? category.parent_id.title : "None"
+
+      // Vị trí
+      .col-lg-6
+        p.mb-1.fw-medium Position:
+        h5.text-muted= category.position || "0"
+
+      // Mô tả
+      .col-lg-12
+        p.mb-1.fw-medium Description:
+        p.text-muted= category.description || "No description provided."
+
+      // Ngày tạo
+      .col-lg-6
+        p.mb-1.fw-medium Created At:
+        h5.text-muted= category.createdAt ? new Date(category.createdAt).toLocaleString() : "Unknown"
+
+      // Thumbnail
+      .col-lg-6
+        p.mb-1.fw-medium Thumbnail:
+        if category.thumbnail
+          img.img-fluid.rounded(src=category.thumbnail, alt="Category Thumbnail")
+        else
+          h5.text-muted No thumbnail available.
+
+      // Danh mục nổi bật
+      .col-lg-6
+        p.mb-1.fw-medium Featured Category:
+        h5.text-muted
+          if category.isFeatured
+            span.badge.bg-success Yes
+          else
+            span.badge.bg-secondary No
+
+      // Danh mục được yêu thích
+      .col-lg-6
+        p.mb-1.fw-medium Most Liked Category:
+        h5.text-muted
+          if category.isMostLiked
+            span.badge.bg-success Yes
+          else
+            span.badge.bg-secondary No
+
+  .card-footer
+    a.btn.btn-outline-secondary(href=`/${prefixAdmin}/category/list`) Back to List

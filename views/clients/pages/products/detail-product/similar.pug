@@ -1,0 +1,32 @@
+div.container
+  p.product-inf__title__1 Sản phẩm tương tự
+  div.product-home
+    each product in relatedProducts
+      div.product-item
+        div.product-card
+          div.product-card__img-wrap
+            a(href=`/products/${product.slug}`)
+              img.product-card__thumb(src=product.thumbnail[0] alt=product.title)
+            div.button-heart-cart-hover
+              a(href="#!")
+                img.prod-list__item__image--heart-hover(
+                  src="/clients/icon/heart.svg"
+                  alt="Thêm vào danh sách yêu thích"
+                  onclick="heart(this)"
+                )
+              a(href=`/products/${product.slug}`)
+                img.prod-list__item__image--cart-hover(
+                  src="/clients/icon/cart.svg"
+                  alt="Thêm vào giỏ hàng"
+                )
+          div.prod-list__item__inner
+            h3.product-card__title
+              a(href=`/products/${product.slug}`)= product.title
+            p.product-card__collection= product.product_category_id && product.product_category_id.title ? product.product_category_id.title : 'Không rõ danh mục'
+            div.product-card__row
+              span.product-card__price= product.priceNew
+              if product.discountPercentage > 0
+                span.product-card__price-sales= product.price
+              div.prod-list__item__info--star-icon
+                img.product-card__star(src="/clients/icon/sanpham-star.svg" alt="Rating")
+                span.product-card__score= product.rating || 'N/A'

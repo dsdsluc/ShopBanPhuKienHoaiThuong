@@ -1,0 +1,24 @@
+header.header
+  a(href="/")
+    div.logo-left
+      img.logo1(alt="", src="/clients/icon/Logo.svg")
+      h1.logo1-text Bear - Jewerly
+  //- Info-Right
+  if isRegister
+    div.frame-right
+      div.asking Bạn đã có tài khoản?
+      a(href="/auth/login")
+        button.btn-signin
+          b.btn-signin-text Đăng nhập
+      button.dark(onclick="darkFunction()")
+        img.moon-icon(alt="", src="/clients/icon/moon-light.svg")
+  else 
+    div.frame-right
+      div.asking Bạn chưa có tài khoản?
+      a(href="/auth/register")
+        button.btn-signup
+          b.btn-signup-text Đăng ký
+      button.dark(onclick="darkFunction()")
+        img.moon-icon(alt="", src="/clients/icon/moon-light.svg")
+
+  script(src="/clients/js/dangky.js")

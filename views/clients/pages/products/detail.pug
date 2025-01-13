@@ -1,0 +1,25 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block css 
+  link(rel="stylesheet" href="/clients/css/sanpham.css")
+
+
+block main
+  +alert-success(message, 5000)
+  +alert-error(message, 5000)
+  
+  div.cross-bar
+  include ./detail-product/detail.pug
+  include ./detail-product/description.pug
+  include ./detail-product/review.pug
+  include ./detail-product/customer-review.pug
+  include ./detail-product/similar.pug
+
+  
+    
+  block script
+    script(src="/clients/js/sanpham.js")
+    
+
+

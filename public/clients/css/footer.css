@@ -1,0 +1,134 @@
+.container {
+  max-width: calc(100% - 50px);
+  margin-left: auto;
+  margin-right: auto;
+  /* không để margin: auto vì nếu vậy sẽ mặc định margin top+bottom = 0 > sau này sẽ ghi đè*/
+  font-family: Quicksand;
+}
+
+.container a {
+  text-decoration: none;
+}
+/* ===== Footer ===== */
+.footer-row {
+  padding: 55px 0;
+  background: #131717;
+}
+
+.footer-row .container {
+  display: grid;
+  grid-template-columns: 1fr 0.3fr 0.3fr 0.3fr;
+  column-gap: 78px;
+}
+
+.logo-foot {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.logo-foot img {
+  transform: scale(2);
+}
+
+.logo-foot .logo-title {
+  color: var(--primary-color);
+  margin-left: 30px;
+  color: #ffbe98;
+  font-size: 76px;
+  font-weight: 700;
+}
+
+.download-title {
+  margin-top: 57px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.download-method {
+  margin-top: 17px;
+}
+
+.download-method .app-store {
+  margin-left: 18px;
+}
+
+.footer__heading {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.footer__list {
+  margin-top: 24px;
+}
+
+.footer__item {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #cecdd7;
+  line-height: 162.5%;
+}
+
+.footer__link {
+  font-size: 16px;
+  color: #cecdd7;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__social {
+  padding-top: 24px;
+  display: flex;
+  column-gap: 5px;
+}
+
+.footer__social-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background-color: #404b4b;
+}
+
+.footer__social-btn img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.footer-copyright {
+  background-color: #f6f6f6;
+}
+
+.footer__copyright-text {
+  text-align: center;
+  color: black ;
+}
+
+.footer-copyright .container {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-copyright .payment-method img {
+  margin-right: 27px;
+}
+
+/* ========= Responsive ========= */
+
+/* Mobile */
+@media screen and (max-width: 780px) {
+  /* ========= Footer ====== */
+  .footer-row .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .footer-column:not(:first-child) {
+    margin-top: 20px;
+  }
+}

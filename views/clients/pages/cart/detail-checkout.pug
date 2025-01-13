@@ -1,0 +1,81 @@
+form(action="/cart/checkout", method="post") 
+  .wrapper
+    .thong-tin-hoa-don
+      h2 Thông tin hóa đơn
+      .info
+        input.email(
+          type="text",
+          name="email",
+          placeholder="Email",
+          value=(user && user.email ? user.email : ''),
+          disabled="disabled",
+          readonly="readonly"
+        )
+        input.hoten(
+          type="text",
+          name="recipientName",
+          placeholder="Họ tên",
+          value=(user && user.fullName ? user.fullName : ''),
+          required
+        )
+        input.sdt(
+          type="text",
+          name="phoneNumber",
+          placeholder="SĐT",
+          value=(user && user.phone ? user.phone : ''),
+          required
+        )
+      h3 Giao đến
+      input(
+        type="text",
+        name="address",
+        placeholder="Địa chỉ bạn muốn giao đến",
+        required
+      )
+      h3 Ghi chú
+      .ghichu
+        input(
+          type="text",
+          name="note",
+          placeholder="Nói cho chúng tôi biết bạn đang nghĩ gì!"
+        )
+
+    .hoa-don-cua-ban
+      h2 Hóa đơn của bạn
+      .hd
+        div
+          | Tổng giá
+          span
+            b #{cart.totalPrice.toLocaleString()}
+            sup đ
+        div
+          | Mã khuyến mãi
+          input.coupon(
+            type="text",
+            name="couponCode",
+            placeholder="Nhập mã khuyến mãi",
+            value=(couponCode ? couponCode : '')
+          )
+        div
+          | Giảm giá
+          span
+            b #{discountAmount ? discountAmount.toLocaleString() : 0}
+            sup đ
+      div
+        | Tổng thanh toán
+        span
+          b #{totalAfterDiscount ? totalAfterDiscount.toLocaleString() : cart.totalPrice.toLocaleString()}
+          sup đ
+      h3 Thanh toán bằng
+      .phuong-thuc-thanh-toan
+        input#opt1(type="radio", name="paymentMethod", value="COD", checked)
+        label(for="opt1") Thanh toán khi nhận hàng
+        br
+        br
+        .momo
+          input#opt2(type="radio", name="paymentMethod", value="MoMo")
+          label(for="opt2") Cổng thanh toán MOMO
+          img(src="/clients/img/Logo MoMo.png", alt="MOMO Logo")
+
+      button(type="submit", class="btn btn-success")
+        b Thanh toán

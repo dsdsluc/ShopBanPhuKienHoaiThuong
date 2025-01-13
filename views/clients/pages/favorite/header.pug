@@ -1,0 +1,7 @@
+section.favorites-list
+  header.favorites-header
+    h1.favorites-title Danh sách yêu thích
+    p.favorites-count #{favorite.products.length} sản phẩm trong danh sách yêu thích của bạn
+  .add-to-cart-container
+    a(href="/cart")
+      button.add-to-cart-button(onclick="addToCart()") Thêm tất cả vào giỏ hàng

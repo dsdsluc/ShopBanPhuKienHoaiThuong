@@ -1,0 +1,76 @@
+main.main-inner
+  //- Left Section (Side-bar)
+  div.side-bar
+    a(href="/")
+      div.arrow
+        img.arrow-icon(src="/clients/icon/QLmatkhau-arrowleft.svg")
+        div.account-text Quản lý tài khoản
+    a(href="/user")
+      button.wrapper-2
+        img.personal-info(src="/clients/icon/QLmatkhau-iconpersonalinfo.svg")
+        div.bar-text Thông tin cá nhân
+    a(href="/auth/logout")
+      button.wrapper-1
+        img.personal-info(src="/clients/icon/ttcn-closecircle.svg")
+        div.bar-text Đăng xuất
+
+  //- Right Section
+  div.right-bar
+    div.title Thông tin cá nhân
+    div.right2
+      form(action="/user/update-profile" method="post")
+        div.user-details
+          //- NAME
+          div.input-box
+            b
+              span.text Họ tên
+              span.span *
+            input.box(type="text", name="fullName", value=user.fullName || '', required=true)
+          //- EMAIL
+          div.input-box
+            b
+              span.text Email
+              span.span *
+            input.box(type="email", name="email", value=user.email || '', required=true)
+          //- GENDER
+          div.input-box
+            b
+              span.text Giới tính
+              span.span *
+            select.box(name="gender" required=true)
+              option(value="Male" selected=(user.gender === 'Male') ? true : false) Nam
+              option(value="Female" selected=(user.gender === 'Female') ? true : false) Nữ
+              option(value="Other" selected=(user.gender === 'Other') ? true : false) Khác
+          //- PHONE NUMBER
+          div.input-box
+            b
+              span.text Số điện thoại
+              span.span *
+            input.box(type="text", name="phone", pattern="[0-9]{10}", title="Vui lòng nhập đủ 10 số", value=user.phone || '', required=true)
+          //- DOB
+          div.input-box
+            b
+              span.text Ngày sinh
+              span.span *
+            input(type="date", name="dob", value=(user.dob ? user.dob.toISOString().split('T')[0] : ''), required=true)
+          //- ADDRESS
+          div.input-box
+            b
+              span.text Địa chỉ
+            input(type="text", name="address", value=user.address || '')
+          //- USERNAME
+          div.input-box
+            b
+              span.text Tên đăng nhập
+              span.span *
+            input(type="text", name="username", value=user.username || '', required=true)
+          //- PASSWORD
+          div.input-box
+            b
+              span.text Mật khẩu
+              span.span *
+            input(type="password", name="password", placeholder="******")
+        //- Save Button
+        div.button
+          button.button-save
+            b.button-save-text Lưu

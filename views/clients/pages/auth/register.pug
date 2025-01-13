@@ -1,0 +1,14 @@
+extends ../../layouts/auth.pug
+include ../../mixins/alert.pug
+
+block css 
+  link(rel="stylesheet" href="/clients/css/dangky.css")
+
+block main
+  +alert-success(message, 5000)
+  +alert-error(message, 5000)
+  div.line1
+  include ./register-form.pug
+  div.line1
+  block script
+    script(src="/clients/js/dangky.js")

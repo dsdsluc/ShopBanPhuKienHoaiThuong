@@ -1,0 +1,67 @@
+script.
+  // Lựa chọn các phần tử DOM
+  const pagination_startBtn = document.querySelector("#pagination_startBtn"),
+        pagination_endBtn = document.querySelector("#pagination_endBtn"),
+        prevNext = document.querySelectorAll(".prevNext"),
+        numbers = document.querySelectorAll(".link");
+
+  // Thiết lập bước khởi đầu
+  let currentStep = 0;
+
+  // Hàm cập nhật trạng thái nút
+  const updateBtn = () => {
+    if (currentStep === 3) {
+      pagination_endBtn.disabled = true;
+      prevNext[1].disabled = true;
+    } else if (currentStep === 0) {
+      pagination_startBtn.disabled = true;
+      prevNext[0].disabled = true;
+    } else {
+      pagination_endBtn.disabled = false;
+      prevNext[1].disabled = false;
+      pagination_startBtn.disabled = false;
+      prevNext[0].disabled = false;
+    }
+  };
+
+  // Thêm event listeners cho các liên kết số trang
+  numbers.forEach((number, numIndex) => {
+    number.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentStep = numIndex;
+      document.querySelector(".active").classList.remove("active");
+      number.classList.add("active");
+      updateBtn();
+    });
+  });
+
+  // Thêm các trình nghe sự kiện cho các nút "Previous" và "Next"
+  prevNext.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      currentStep += e.target.id === "pagination_next" ? 1 : -1;
+      numbers.forEach((number, numIndex) => {
+        number.classList.toggle("active", numIndex === currentStep);
+        updateBtn();
+      });
+    });
+  });
+
+  // Thêm trình nghe sự kiện cho nút "Start"
+  pagination_startBtn.addEventListener("click", () => {
+    document.querySelector(".active").classList.remove("active");
+    numbers[0].classList.add("active");
+    currentStep = 0;
+    updateBtn();
+    pagination_endBtn.disabled = false;
+    prevNext[1].disabled = false;
+  });
+
+  // Thêm trình nghe sự kiện cho nút "Kết thúc"
+  pagination_endBtn.addEventListener("click", () => {
+    document.querySelector(".active").classList.remove("active");
+    numbers[3].classList.add("active");
+    currentStep = 4;
+    updateBtn();
+    pagination_startBtn.disabled = false;
+    prevNext[0].disabled = false;
+  });

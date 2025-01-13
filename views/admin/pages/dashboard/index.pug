@@ -1,0 +1,148 @@
+extends ../../layouts/default.pug
+
+block main
+  .row
+    .col-xxl-12
+      .row
+        // Total Orders Card with details
+        .col-md-6
+          .card.overflow-hidden
+            .card-body
+              .row
+                .col-6
+                  .avatar-md.bg-soft-primary.rounded
+                    iconify-icon.avatar-title.fs-32.text-primary(icon="solar:cart-5-bold-duotone")
+                .col-6.text-end
+                  p.text-muted.mb-0.text-truncate Total Orders
+                  h3.text-dark.mt-1.mb-0= stats.totalOrders || 0
+                  small.text-muted
+                    | Completed Orders: #{stats.completedOrders || 0}
+                    br
+                    | Pending Orders: #{stats.pendingOrders || 0}
+            .card-footer.py-2.bg-light.bg-opacity-50
+              .d-flex.align-items-center.justify-content-between
+                div
+                  span.text-success
+                    i.bx.bxs-up-arrow.fs-12
+                    |  2.3%
+                  span.text-muted.ms-1.fs-12 Last Week
+                a.text-reset.fw-semibold.fs-12(href="/admin/order/list") View More
+
+        // Total Revenue Card with currency formatting
+        .col-md-6
+          .card.overflow-hidden
+            .card-body
+              .row
+                .col-6
+                  .avatar-md.bg-soft-success.rounded
+                    iconify-icon.avatar-title.fs-32.text-success(icon="solar:banknotes-bold-duotone")
+                .col-6.text-end
+                  p.text-muted.mb-0.text-truncate Total Revenue
+                  h3.text-dark.mt-1.mb-0 #{stats.revenue.toLocaleString('vi-VN')} VNĐ
+                  small.text-muted
+                    | Compared to last period: -1.2%
+            .card-footer.py-2.bg-light.bg-opacity-50
+              .d-flex.align-items-center.justify-content-between
+                div
+                  span.text-danger
+                    i.bx.bxs-down-arrow.fs-12
+                    |  -1.2%
+                  span.text-muted.ms-1.fs-12 Last Week
+                a.text-reset.fw-semibold.fs-12(href="#!") View More
+        .col-md-6
+          .card.overflow-hidden
+            .card-body
+              .row
+                .col-6
+                  .avatar-md.bg-soft-secondary.rounded
+                    iconify-icon.avatar-title.fs-32.text-secondary(icon="solar:user-bold-duotone")
+                .col-6.text-end
+                  p.text-muted.mb-0.text-truncate Total Users
+                  h3.text-dark.mt-1.mb-0= stats.totalUsers || 0
+                  small.text-muted
+                    | Female: #{stats.femaleUsers || 0}
+                    br
+                    | Male: #{stats.maleUsers || 0}
+                    br
+                    | Other: #{stats.otherGenderUsers || 0}
+            .card-footer.py-2.bg-light.bg-opacity-50
+              .d-flex.align-items-center.justify-content-between
+                div
+                  span.text-success
+                    i.bx.bxs-up-arrow.fs-12
+                    |  2.1%
+                  span.text-muted.ms-1.fs-12 Compared to Last Month
+                a.text-reset.fw-semibold.fs-12(href="/admin/user/list") View More
+        
+        .col-md-6
+          .card.overflow-hidden
+            .card-body
+              .row
+                .col-6
+                  .avatar-md.bg-soft-warning.rounded
+                    iconify-icon.avatar-title.fs-32.text-warning(icon="solar:category-bold-duotone")
+                .col-6.text-end
+                  p.text-muted.mb-0.text-truncate Total Categories
+                  h3.text-dark.mt-1.mb-0= stats.totalCategories || 0
+                  small.text-muted
+                    | Active: #{stats.activeCategories || 0}
+                    br
+                    | Featured: #{stats.featuredCategories || 0}
+            .card-footer.py-2.bg-light.bg-opacity-50
+              .d-flex.align-items-center.justify-content-between
+                div
+                  span.text-success
+                    i.bx.bxs-up-arrow.fs-12
+                    |  3.5%
+                  span.text-muted.ms-1.fs-12 Last Week
+                a.text-reset.fw-semibold.fs-12(href="/admin/category/list") View More
+
+        // Total Products Card with categories
+        .col-md-6
+          .card.overflow-hidden
+            .card-body
+              .row
+                .col-6
+                  .avatar-md.bg-soft-warning.rounded
+                    iconify-icon.avatar-title.fs-32.text-warning(icon="solar:box-bold-duotone")
+                .col-6.text-end
+                  p.text-muted.mb-0.text-truncate Total Products
+                  h3.text-dark.mt-1.mb-0= stats.totalProducts || 0
+                  small.text-muted
+                    | Featured: #{stats.featuredProducts || 0}
+                    br
+                    | Best Sellers: #{stats.bestSellerProducts || 0}
+                    br
+                    | Inactive: #{stats.inactiveProducts || 0}
+            .card-footer.py-2.bg-light.bg-opacity-50
+              .d-flex.align-items-center.justify-content-between
+                div
+                  span.text-success
+                    i.bx.bxs-up-arrow.fs-12
+                    |  3.8%
+                  span.text-muted.ms-1.fs-12 Last Month
+                a.text-reset.fw-semibold.fs-12(href="/admin/product/list") View More
+
+        // Total Accounts Card with more data
+        .col-md-6
+          .card.overflow-hidden
+            .card-body
+              .row
+                .col-6
+                  .avatar-md.bg-soft-secondary.rounded
+                    iconify-icon.avatar-title.fs-32.text-secondary(icon="solar:user-bold-duotone")
+                .col-6.text-end
+                  p.text-muted.mb-0.text-truncate Total Accounts
+                  h3.text-dark.mt-1.mb-0= stats.totalAccounts || 0
+                  small.text-muted
+                    | Active: #{stats.activeAccounts || 0}
+                    br
+                    | Inactive: #{stats.inactiveAccounts || 0}
+            .card-footer.py-2.bg-light.bg-opacity-50
+              .d-flex.align-items-center.justify-content-between
+                div
+                  span.text-success
+                    i.bx.bxs-up-arrow.fs-12
+                    |  1.7%
+                  span.text-muted.ms-1.fs-12 Last Week
+                a.text-reset.fw-semibold.fs-12(href="/admin/account/list") View More

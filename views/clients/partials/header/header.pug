@@ -1,0 +1,106 @@
+// PC Header
+header.fixed-header
+  .container
+    .top-bar
+      // Mobile menu
+      button.hamburger-menu(onclick="burgerFunction()")
+        img(src="/clients/icon/index-burger.svg" alt="")
+      
+      // Logo
+      a.logo-nav(href="/")
+        img(src=settings.site_logo alt="Luxe")
+        h1.logo-title #{settings.site_name}
+
+      // Search button
+      .top-act-group.mobile
+        button.top-act-btn
+          img.searchBtn(src="/clients/icon/search.svg" name="search-btn" onclick="search()")
+
+      // Navigation
+      nav.navbar
+        ul#PC_nav
+          li
+            a(href="/") TRANG CHỦ
+          li
+            a(href="/products") SẢN PHẨM
+          li
+            a(href="/about") VỀ CHÚNG TÔI
+          li
+            a(href="/blogs") HỖ TRỢ
+          li
+            a(href="/contact") LIÊN HỆ
+
+      // Action
+      .top-act
+        .top-act-group
+          button.top-act-btn
+            img.searchBtn(src="/clients/icon/search.svg" name="search-btn" onclick="search()")
+
+        .top-act-group
+          if user 
+            button.top-act-btn
+              a(href="/cart/ordered")
+                img(src="/clients/icon/cargo.png" alt="" class="icon")
+              span#wishlist.top-act-title #{miniOrder}
+          .top-act-separate
+          button.top-act-btn
+            a(href="/favorite")
+              img(src="/clients/icon/heart.svg" alt="")
+            span#wishlist.top-act-title #{miniFavorite}
+          .top-act-separate
+          button.top-act-btn
+            a(href="/cart")
+              img(src="/clients/icon/cart.svg" alt="")
+            span.top-act-title #{miniCart.totalQuantity}
+          .top-act-separate
+          if user
+            button.top-act-btn.user
+              a(href="/user")
+                img(src="/clients/icon/user.svg" alt="")
+          .top-act-separate
+          if user
+            button.top-act-btn.user
+              a(href="/auth/logout")
+                img(src="/clients/icon/logout.png" alt="" class="icon")
+          else 
+            button.top-act-btn.user
+              a(href="/auth/login")
+                img(src="/clients/icon/login.png" alt="" class="icon")
+          
+          .top-act-separate
+          button.top-act-btn.mode(onclick="darkFunction()")
+            img(src="/clients/icon/mode.svg" alt="")
+    
+    .search-box
+        input(type="text" placeholder="Tìm kiếm sản phẩm..." onkeydown="handleKeyPress(event)")
+        img.closeBtn(src="/clients/icon/index-delete.svg" name="close-btn" onclick="closeSearch()")
+
+// Mobile Header
+header.mobile-header
+  .menu-overlay(onclick="burgerFunction()")
+  // Menu-content
+  .menu-drawer
+    button.navbar-close(onclick="burgerFunction()")
+      img(src="/clients/icon/index-arrow-left.svg" alt="")
+    hr
+    nav.navbar-mobile
+      ul#mobile_nav
+        script.
+          const pcNav = document.querySelector("#PC_nav");
+          const mobileNav = document.querySelector("#mobile_nav");
+          mobileNav.innerHTML = pcNav.innerHTML;
+    hr
+    // Action
+    .top-act
+      button.top-act-btn
+        img(src="/clients/icon/heart.svg" alt="")
+        span.top-act-title 03
+      button.top-act-btn
+        img(src="/clients/icon/cart.svg" alt="")
+        span.top-act-title 03
+      button.top-act-btn
+        a(href="/auth/register")
+          img(src="/clients/icon/user.svg" alt="")
+      button.top-act-btn.mode(onclick="darkFunction()")
+        img(src="/clients/icon/mode.svg" alt="")
+

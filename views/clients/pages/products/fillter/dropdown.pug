@@ -1,0 +1,16 @@
+div.prod-dropdown
+  label.prod-dropdown--left
+    i.fa-solid.fa-arrow-up-wide-short
+    | Sắp xếp:
+  div.prod-dropdown--right
+    div.prod-dropdown__input-box
+    div.prod-dropdown__list
+      input.radio(type="radio" name="sort" id="id1" value="default" checked=(currentSort === 'default'))
+      label(for="id1")
+        span.name Mặc định
+      input.radio(type="radio" name="sort" id="id2" value="price_asc" checked=(currentSort === 'price_asc'))
+      label(for="id2")
+        span.name Giá từ thấp tới cao
+      input.radio(type="radio" name="sort" id="id3" value="price_desc" checked=(currentSort === 'price_desc'))
+      label(for="id3")
+        span.name Giá từ cao tới thấp

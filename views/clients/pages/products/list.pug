@@ -1,0 +1,51 @@
+div.prod-list
+  div.prod-list__grid
+    if products.length
+      each product in products
+        section.prod-list__item
+          div.prod-list__item__image
+            a(href=`/products/detail/${product.slug}`)
+              img.prod-list__item__img1(
+                loading="lazy" 
+                alt=`${product.title}` 
+                src=product.thumbnail[0] || '/clients/img/3H0-1.webp'
+              )
+            if product.isFeatured
+              span.product-sale-tag
+                span NEW!
+            div.button-heart-cart-hover         
+              a(href=`/favorite/add/${product._id}`)
+                img.prod-list__item__image--heart-hover(
+                  src="/clients/icon/heart.svg" 
+                  alt="Wishlist" 
+                  onclick="heart(this)"
+                )
+              form#addToCartForm(action=`/cart/add/${product._id}` method="POST")
+                input(type="hidden" name="quantity" value="1" id="quantityInput")
+                input(type="hidden" name="size" value="M" id="sizeInput")
+                button(type="submit")
+                  img.prod-list__item__image--cart-hover(
+                    src="/clients/icon/cart.svg" 
+                    alt="Add to Cart"
+                  )
+          div.prod-list__item__inner
+            div.prod-list__item__inner--child
+              div.prod-list__item__info
+                div.prod-list__item__info--title
+                  a(href=`/products/detail/${product.slug}`) #{product.title}
+                div.prod-list__item__info--masp #{product.brand || 'Unknown Brand'}
+              div.prod-list__item__info--price-fb
+                div.prod-list__item--price
+                  span.prod-list__item__info--price #{product.priceNew.toLocaleString('vi-VN')} VNĐ
+                  if product.discountPercentage > 0
+                    span.prod-list__item__info--price-sales #{product.price.toLocaleString('vi-VN')} VNĐ
+                div.prod-list__item__info--star-icon
+                  img.info--star-icon(
+                    loading="lazy" 
+                    alt="Rating" 
+                    src="/clients/icon/star.svg"
+                  )
+                  div.prod-list__item__info--fb #{product.rating || '5'}
+    else
+      div.no-products
+        h2 Không có sản phẩm nào phù hợp với tìm kiếm của bạn.

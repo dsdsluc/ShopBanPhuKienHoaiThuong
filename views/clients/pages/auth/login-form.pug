@@ -1,0 +1,42 @@
+main.main
+  div.main-inner
+    //- ads-left - Slider section
+    div.ads-left
+      div.slider
+        div.list
+          div.item
+            img(src="/clients/img/dangnhap-img1.png", alt="Hình ảnh 1")
+          div.item
+            img(src="/clients/img/dangnhap-img2.png", alt="Hình ảnh 2")
+          div.item
+            img(src="/clients/img/dangnhap-img3.png", alt="Hình ảnh 3")
+        //- Buttons for navigation
+        div.buttons
+          button#prev(type="button") <
+          button#next(type="button") >
+        //- Dots for slider
+        ul.dots
+          li.active
+          li
+          li
+      script(src="/clients/js/dangnhap.js")
+
+    form.signin-info(action="/auth/login" method="POST")
+      h1.signin-title Đăng nhập
+      div.signin-input
+        //- Username
+        div.username-container
+          b
+            span.username-text Tên đăng nhập
+            span.span *
+          input.username-box(name="username", type="text", required=true)
+        //- Password
+        div.password-container
+          b
+            span.pass-text Mật khẩu
+            span.span *
+          input.password-box(name="password", type="password", required=true)
+        a(href="/auth/forgot-password") Quên mật khẩu
+      div.button
+        button.button-signin(type="submit")
+          b.button-signin-text Đăng nhập

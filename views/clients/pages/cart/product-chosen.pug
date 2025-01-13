@@ -1,0 +1,38 @@
+each item, index in cart.items
+  div.product-detail
+    div.product-inf__image
+      form(action=`/cart/delete/${item.product.id}?_method=DELETE`, method="post")
+        button(type="submit")  
+          img(src="/clients/icon/giohang-delete.svg", alt="Xóa sản phẩm")
+      div.frame-img
+        img.product-inf__image1(src=item.product.image, alt=item.product.name)
+    div.product-inf__word
+      p.product-card__collection(style="color: var(--text-color-3)")= item.product.category || "Không rõ danh mục"
+      a(href=`/product/${item.product.slug}`)
+        p.product-inf__title= item.product.name
+      div.product-inf__star
+        img(src="/clients/icon/star.svg", alt="Đánh giá sản phẩm")
+        p(style="color: var(--text-color-dark)") #{item.product.rating || 'N/A'} 
+      div.product-price
+        span.product-inf__price= item.product.finalPrice.toLocaleString() + "đ"
+        span.product-inf__price-sales= item.product.price.toLocaleString() + "đ"
+      div.underline
+      
+      form(action=`/cart/update-cart/${item.product.id}?_method=PATCH`, method="post") 
+        div.product-quantity.form-group
+          label(for=`quantity-${item.product.id}`, class="form-label fw-bold") Số lượng:
+          div.input-group
+            input#quantity.form-control(type="number", name="quantity", min="1", value=item.quantity, required)
+
+        div.product-size.form-group
+          label(for=`size-${item.product.id}`, class="form-label fw-bold") Kích thước:
+          select#size.form-select(name="size", required)
+            each size in item.product.size
+              option(value=size selected=(size === item.size))= size
+
+        div.product-total-price.d-flex.align-items-center.mt-3
+          span(class="fw-bold me-2") Tổng giá:
+          span.product-total.text-danger.fs-5= (item.product.finalPrice * item.quantity).toLocaleString() + "đ"
+
+        div.form-buttons.mt-3
+          button(type="submit", class="btn btn-primary btn-sm") Cập nhật

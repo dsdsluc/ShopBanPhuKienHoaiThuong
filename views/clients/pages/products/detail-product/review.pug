@@ -1,0 +1,73 @@
+div.review
+  div.review-read
+    //- Review statistics
+    div.review-statistics
+      p.customer-review Đánh giá sản phẩm
+      p.review-quantity 77 lượt đánh giá
+      div.product-inf__star
+        img(src="/clients/icon/sanpham-star.svg" alt="")
+        p(style="color: var(--product-detail-text-color-dark)") 4.9
+      div.star
+        p.star-quality 5 sao
+        div.cross-bar__star
+          div.cross-quantity1
+        p.star-quality 37
+      div.star
+        p.star-quality 4 sao
+        div.cross-bar__star
+          div.cross-quantity2
+        p.star-quality 20
+      div.star
+        p.star-quality 3 sao
+        div.cross-bar__star
+          div.cross-quantity3
+        p.star-quality 12
+      div.star
+        p.star-quality 2 sao
+        div.cross-bar__star
+          div.cross-quantity4
+        p.star-quality 8
+      div.star
+        p.star-quality 1 sao
+        div.cross-bar__star
+          div.cross-quantity5
+        p.star-quality 0
+
+    //- Writing review
+    div.review-writing
+      p.customer-review Đánh giá của bạn về sản phẩm này
+      img.img-star(src="/clients/icon/sanpham-5star.svg" alt="")
+      form#reviewForm(method="get")
+        div.review-form
+          div.form-group
+            label(for="reviewStar") Số sao (Điền từ 1 đến 5)
+            br
+            input.write-star(
+              type="number"
+              id="reviewStar"
+              name="reviewStar"
+              onblur="validateStar()"
+            )
+            br
+            span#starError(style="color: red")
+          div.form-group
+            label(for="reviewTitle") Tiêu đề
+            br
+            input.write-headline(
+              type="text"
+              id="reviewTitle"
+              name="reviewTitle"
+            )
+          div.form-group
+            label(for="reviewDetails") Đánh giá chi tiết
+            br
+            textarea.write-detail(
+              id="reviewDetails"
+              name="reviewDetails"
+              rows="4"
+            )
+        button.btn.submit(
+          style="border: none; margin-top: 15px"
+          type="submit"
+          onclick='alert("Gửi review thành công!");'
+        ) Gửi

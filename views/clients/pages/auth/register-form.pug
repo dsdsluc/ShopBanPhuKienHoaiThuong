@@ -1,0 +1,104 @@
+main.main
+  div.main-inner
+    //- Left
+    div.ads-left
+      img(src="/clients/img/dangky-anhBG.png", alt="")
+
+    //- Right
+    div.container-right
+      div.title Đăng ký
+      form(action="/auth/register" method="POST")
+        div.user-details
+          //- NAME
+          div.input-box
+            b
+              span.text Họ tên
+              span.span *
+            input.box(type="text", name="fullName", required=true)
+
+          //- EMAIL
+          div.input-box
+            b
+              span.text Email
+              span.span *
+            input.box(type="email", name="email", required=true)
+
+          //- ADDRESS
+          div.input-box
+            b
+              span.text Địa chỉ
+              span.span *
+            textarea.box(name="address" rows="3" required=true placeholder="Nhập địa chỉ của bạn")
+
+          //- GENDER
+          div.input-box
+            b
+              span.text Giới tính
+              span.span *
+            select.box(name="gender", required=true)
+              option(value="Male") Nam
+              option(value="Female") Nữ
+              option(value="Other") Khác
+
+          //- NUMBER
+          div.input-box
+            b
+              span.text Số điện thoại
+              span.span *
+            input.box(type="text", name="phone", pattern="[0-9]{10}", title="Vui lòng nhập đủ 10 số", required=true)
+
+          //- DOB
+          div.input-box
+            b
+              span.text Ngày sinh
+              span.span *
+            input(type="date", name="dob", required=true)
+
+          //- PASSWORD
+          div.input-box
+            b
+              span.text Mật khẩu
+              span.span *
+            input#password(type="password", name="password", minlength="6", required=true)
+
+          //- PASSWORD CONFIRM
+          div.input-box
+            b
+              span.text Xác nhận mật khẩu
+              span.span *
+            input#confirmPassword(type="password", name="confirmPassword" minlength="6", required=true)
+            div#passwordMatchMessage(style="display: none; color: red") Mật khẩu không khớp
+
+          //- USERNAME
+          div.input-box
+            b
+              span.text Tên đăng nhập
+              span.span *
+            input(type="text", name="username", required=true)
+
+          //- CHECK-BOX
+          div.check-box
+            input.checkbox(type="checkbox", name="agree", required=true)
+            span.text
+              | Tôi đồng ý với 
+              b(style="color: #ef9059") Luxe
+              |  về Điều khoản dịch vụ và Chính sách
+            span.span *
+
+          //- BUTTONS
+          div.button
+            button.button-signup(type="submit") Đăng ký
+
+        script.
+          const passwordInput = document.getElementById("password");
+          const confirmPasswordInput = document.getElementById("confirmPassword");
+          const passwordMatchMessage = document.getElementById("passwordMatchMessage");
+          function checkPasswordMatch() {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+              passwordMatchMessage.style.display = "block";
+            } else {
+              passwordMatchMessage.style.display = "none";
+            }
+          }
+          passwordInput.addEventListener("input", checkPasswordMatch);
+          confirmPasswordInput.addEventListener("input", checkPasswordMatch);
